@@ -1,28 +1,27 @@
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import "./App.css";
+import React from "react";
+import { GoogleLogin } from "react-google-login";
 
-const clientId =
-  "191503931009 - eqlrq4m79dknuiis7tli75c1dvgjkoom.apps.googleusercontent.com";
+const clientId = "YOUR_CLIENT_ID";
 
 function App() {
   const handleLoginSuccess = (response) => {
-    console.log(10, response.profileObj);
+    console.log("Kirish muvaffaqiyatli:", response.profileObj);
   };
 
   const handleLoginFailure = (error) => {
     console.error("Kirishda xato:", error);
   };
+
   return (
-    <GoogleOAuthProvider clientId={clientId}>
-      <div>
-        <GoogleLogin
-          buttonText="Google bilan kirish"
-          onSuccess={handleLoginSuccess}
-          onFailure={handleLoginFailure}
-        />
-      </div>
-    </GoogleOAuthProvider>
+    <div>
+      <GoogleLogin
+        clientId={clientId}
+        buttonText="Google bilan kirish"
+        onSuccess={handleLoginSuccess}
+        onFailure={handleLoginFailure}
+        cookiePolicy={"single_host_origin"}
+      />
+    </div>
   );
 }
 
