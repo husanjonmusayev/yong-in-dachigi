@@ -3,7 +3,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import "./App.css";
 
 const clientId =
-  "191503931009-eqlrq4m79dknuiis7tli75c1dvgjkoom.apps.googleusercontent.com";
+  191503931009 - eqlrq4m79dknuiis7tli75c1dvgjkoom.apps.googleusercontent.com;
 
 function App() {
   const handleLoginSuccess = (response) => {
